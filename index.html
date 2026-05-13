@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRIDAYCORP.</title>
-    <meta name="description" content="Design-led software. No tracking. No noise.">
-    <!-- Google Fonts -->
+    <title>FRIDAYCORP. | RIZE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -13,7 +11,12 @@
         :root {
             --black: #000000;
             --white: #FFFFFF;
-            --border-width: 4px;
+            --grey: #F5F5F5;
+            --nav-height: 80px;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -25,219 +28,344 @@
         body {
             background-color: var(--white);
             color: var(--black);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            padding-top: var(--nav-height);
         }
 
         h1, h2, h3, .brand {
             font-family: 'Archivo Black', sans-serif;
             text-transform: uppercase;
             line-height: 1.1;
+            margin-bottom: 1rem;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+        /* Sticky Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: var(--white);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            border-bottom: 2px solid var(--black);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--black);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
             gap: 2rem;
         }
 
-        section {
-            border: var(--border-width) solid var(--black);
-            padding: 3rem;
-            background-color: var(--white);
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             color: var(--black);
-            /* Sharp, instant transitions for brutalist feel */
-            transition: background-color 0s, color 0s;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
         }
 
-        /* Brutalist hover effect */
-        section:hover {
-            background-color: var(--black);
-            color: var(--white);
+        .nav-links a:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
+        /* Layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        /* Hero */
         .hero {
-            padding: 6rem 3rem;
+            padding: 10rem 0 8rem 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: clamp(4rem, 12vw, 10rem);
-            letter-spacing: -0.04em;
-            word-wrap: break-word;
+            font-size: clamp(3rem, 8vw, 7rem);
+            letter-spacing: -0.03em;
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
         }
 
-        .mission {
-            padding: 4rem 3rem;
+        .hero p {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            color: #333;
         }
 
-        .mission h2 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            max-width: 900px;
-            letter-spacing: -0.02em;
+        .btn {
+            display: inline-block;
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 1.25rem 3rem;
+            border: 2px solid var(--black);
+            transition: background-color 0.2s ease, color 0.2s ease;
+            cursor: pointer;
         }
 
-        .app-feature {
-            display: flex;
-            flex-direction: column;
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        /* Grid */
+        .grid-12 {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
             gap: 2rem;
         }
 
-        .app-feature h2 {
-            font-size: clamp(4rem, 10vw, 8rem);
-            border-bottom: var(--border-width) solid var(--black);
-            padding-bottom: 1rem;
-            display: inline-block;
-            align-self: flex-start;
-        }
-
-        /* Adjust hover inheritance for borders inside sections */
-        section:hover .app-feature h2 {
-            border-color: var(--white);
-        }
-
-        .app-feature p {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 600;
-            max-width: 800px;
-        }
-
-        .contact {
-            padding: 4rem 3rem;
-        }
-
-        .contact h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact a {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-family: 'Archivo Black', sans-serif;
-            color: inherit;
-            text-decoration: none;
-            border-bottom: var(--border-width) solid var(--black);
-        }
-
-        section:hover .contact a {
-            border-color: var(--white);
-            background-color: var(--white);
-            color: var(--black);
-        }
-
-        .footer {
-            margin-top: 1rem;
+        .problem-box {
+            grid-column: span 4;
+            padding: 2.5rem;
+            border: 2px solid var(--black);
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            padding-bottom: 4rem;
+            background-color: var(--white);
         }
 
-        .privacy-toggle {
-            background: transparent;
-            color: var(--black);
-            border: none;
-            text-align: left;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.5rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            text-decoration: underline;
-            text-decoration-thickness: var(--border-width);
-            text-underline-offset: 4px;
-            align-self: flex-start;
-            padding: 0.25rem 0;
+        .problem-box h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 1rem;
+        }
+
+        /* Engineering */
+        .engineering {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .engineering-content {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .engineering-title {
+            grid-column: span 4;
         }
         
-        .privacy-toggle:hover {
-            background: var(--black);
+        .engineering-title h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin: 0;
             color: var(--white);
-            text-decoration-color: var(--white);
-            padding: 0.25rem 0.5rem;
         }
 
-        .privacy-content {
-            display: none;
-            border: var(--border-width) solid var(--black);
-            padding: 2rem;
+        .engineering-list {
+            grid-column: span 8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .engineering-list div {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--white);
+            padding-bottom: 1rem;
+        }
+        
+        .engineering-list div:last-child {
+            border-bottom: none;
+        }
+
+        /* Privacy */
+        .privacy {
+            background-color: var(--grey);
+            padding: 6rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            border: 2px solid var(--black);
+        }
+
+        .privacy h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+        }
+
+        .privacy p {
             font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
             font-weight: 600;
-            background-color: var(--white);
-            color: var(--black);
         }
 
-        .privacy-content.active {
-            display: block;
+        /* Footer */
+        footer {
+            border-top: 2px solid var(--black);
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .problem-box {
+                grid-column: span 6;
+            }
+            .engineering-title, .engineering-list {
+                grid-column: span 12;
+            }
+            .engineering-title {
+                border-bottom: 2px solid var(--white);
+                padding-bottom: 2rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            nav {
+                padding: 0 1rem;
+            }
+            .nav-brand {
+                font-size: 1.25rem;
+            }
+            .nav-links {
                 gap: 1rem;
             }
-            section {
-                padding: 2rem 1.5rem;
+            .nav-links a {
+                font-size: 0.8rem;
             }
-            .hero h1 {
-                font-size: clamp(3rem, 15vw, 5rem);
+            .problem-box {
+                grid-column: span 12;
             }
-            .privacy-toggle {
-                font-size: 1.25rem;
+            .hero {
+                padding: 6rem 0 4rem 0;
+            }
+            .engineering-content {
+                padding: 4rem 2rem;
+            }
+            .privacy {
+                padding: 4rem 1.5rem;
+            }
+            footer {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>FRIDAYCORP.</h1>
-        </section>
 
-        <!-- Mission Section -->
-        <section class="mission">
-            <h2>Design-led software.<br>No tracking. No noise.</h2>
-        </section>
+    <!-- Sticky Navigation -->
+    <nav>
+        <a href="#" class="brand nav-brand">FRIDAYCORP.</a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#support">Support</a>
+        </div>
+    </nav>
 
-        <!-- The App Section -->
-        <section class="app-feature">
-            <h2>RIZE</h2>
-            <p>The aesthetic alarm. Designed to wake you up without the clutter.</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="container hero">
+        <h1>WAKE UP WITHOUT THE WEAKNESS.</h1>
+        <p>RIZE is the anti-snooze system that uses AI to ensure you're actually out of bed.</p>
+        <a href="#download" class="btn">Get RIZE on Play Store</a>
+    </section>
 
-        <!-- Support Section -->
-        <section class="contact">
-            <h2>CONTACT</h2>
-            <a href="mailto:fridaycorp.help@gmail.com">fridaycorp.help@gmail.com</a>
-        </section>
-
-        <!-- Legal / Footer Section -->
-        <div class="footer">
-            <button class="privacy-toggle" onclick="togglePrivacy()" aria-expanded="false">Privacy Policy</button>
-            <div class="privacy-content" id="privacyContent">
-                <p><strong>RIZE processes all data locally on-device.</strong> No personal information, alarm settings, or usage data are ever uploaded to FridayCorp servers.</p>
+    <!-- Problem Grid -->
+    <section id="features" class="container section">
+        <div class="grid-12">
+            <div class="problem-box">
+                <h3>The Snooze Loop</h3>
+                <p>Stop hitting snooze. Our 'Sink Photo' mission puts you in front of the tap before the noise stops.</p>
+            </div>
+            <div class="problem-box">
+                <h3>Brain Fog</h3>
+                <p>Math & Quote missions force your prefrontal cortex to activate instantly.</p>
+            </div>
+            <div class="problem-box">
+                <h3>Physical Start</h3>
+                <p>AI-powered push-up detection ensures you start with movement, not a scroll.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        function togglePrivacy() {
-            const content = document.getElementById('privacyContent');
-            const button = document.querySelector('.privacy-toggle');
-            const isExpanded = button.getAttribute('aria-expanded') === 'true';
-            
-            if (isExpanded) {
-                content.classList.remove('active');
-                button.setAttribute('aria-expanded', 'false');
-            } else {
-                content.classList.add('active');
-                button.setAttribute('aria-expanded', 'true');
-            }
-        }
-    </script>
+    <!-- Engineering Highlights -->
+    <section class="engineering">
+        <div class="engineering-content">
+            <div class="engineering-title">
+                <h2>BUILT TO WORK.</h2>
+            </div>
+            <div class="engineering-list">
+                <div>Background Media Loading</div>
+                <div>Zero-Lag AI Vision</div>
+                <div>Infinite Reel Audio</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Commitment -->
+    <section id="privacy" class="container section">
+        <div class="privacy">
+            <h2>100% ON-DEVICE AI</h2>
+            <p>Your mornings are yours. All AI processing happens locally on your phone. No personal data, photos, or alarms are ever sent to FridayCorp servers.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="brand">FRIDAYCORP.</div>
+        <div class="footer-links">
+            <a href="https://www.termsfeed.com/live/00e6e913-b444-432a-b8e7-8c66f59d3bcd" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a href="#terms">Terms</a>
+            <a href="mailto:fridaycorp.help@gmail.com">Contact</a>
+        </div>
+    </footer>
+
 </body>
 </html>
